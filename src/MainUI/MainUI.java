@@ -19,9 +19,11 @@ public class MainUI extends JFrame {
 
         JButton OmokBt = new JButton("오목");
         JButton ChesstBt = new JButton("체스");
+        JButton QuitBt = new JButton("종료");
 
         OmokBt.setBounds(130,180,100,45);
         ChesstBt.setBounds(130,250,100,45);
+        QuitBt.setBounds(130,320,100,45);
 
         //--------------------------------------------------------------------------------------------//
 
@@ -30,6 +32,7 @@ public class MainUI extends JFrame {
 
         background.add(OmokBt);
         background.add(ChesstBt);
+        background.add(QuitBt);
 
         setVisible(true);
 
@@ -41,6 +44,10 @@ public class MainUI extends JFrame {
 
         ChesstBt.addActionListener((ActionEvent e) ->{
             System.out.println("체스");
+        });
+        
+        QuitBt.addActionListener((ActionEvent e) ->{
+            System.exit(0);
         });
 
     }
