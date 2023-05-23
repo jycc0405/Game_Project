@@ -1,5 +1,8 @@
 package MainUI;
 
+import OmokGame.Client.Mainclient;
+import OmokServer.Server.MainServer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -37,6 +40,7 @@ public class MainUI extends JFrame {
 
         OmokBt.addActionListener((ActionEvent e) ->{
             System.out.println("오목");
+            Mainclient.main();
         });
 
         ChesstBt.addActionListener((ActionEvent e) ->{
