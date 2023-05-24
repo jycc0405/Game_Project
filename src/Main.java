@@ -1,4 +1,5 @@
 import MainUI.MainUI;
+import OmokServer.Server.MainServer;
 
 public class Main {
 
