@@ -1,13 +1,16 @@
-package MainUI;
 
-import javax.swing.*;
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class MainUI extends JFrame {
 
-    private final String FRAME_TITLE="ë©”ì¸ì°½";
+    private final String FRAME_TITLE="¸ÞÀÎÃ¢";
     private int[] FRAME_SIZE={700,600};
     private int FRAME_LOC_X = 500;
     private int FRAME_LOC_Y=100;
@@ -17,8 +20,8 @@ public class MainUI extends JFrame {
         setTitle(FRAME_TITLE);
         setLocation(FRAME_LOC_X,FRAME_LOC_Y);
 
-        JButton OmokBt = new JButton("ì˜¤ëª©");
-        JButton ChesstBt = new JButton("ì²´ìŠ¤");
+        JButton OmokBt = new JButton("¿À¸ñ");
+        JButton ChesstBt = new JButton("Ã¼½º");
 
         OmokBt.setBounds(130,180,100,45);
         ChesstBt.setBounds(130,250,100,45);
@@ -36,11 +39,17 @@ public class MainUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         OmokBt.addActionListener((ActionEvent e) ->{
-            System.out.println("ì˜¤ëª©");
+            System.out.println("¿À¸ñ");
         });
 
         ChesstBt.addActionListener((ActionEvent e) ->{
-            System.out.println("ì²´ìŠ¤");
+            System.out.println("Ã¼½º");
+            try {
+                ProcessBuilder pb = new ProcessBuilder("java", "Chess");
+                pb.start();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
 
     }
