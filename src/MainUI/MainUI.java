@@ -1,9 +1,15 @@
 package MainUI;
 
-import javax.swing.*;
-import java.awt.*;
+
+import ChessGame.Chess;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class MainUI extends JFrame {
 
@@ -41,6 +47,14 @@ public class MainUI extends JFrame {
 
         ChesstBt.addActionListener((ActionEvent e) ->{
             System.out.println("체스");
+            try {
+                ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ChessStart");
+                pb.start();
+                ProcessBuilder pb1 = new ProcessBuilder("java", "-cp", "out/production/Game_Project", "ChessStart");
+                pb1.start();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
 
     }
