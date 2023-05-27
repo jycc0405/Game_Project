@@ -290,7 +290,7 @@ public class Chess extends JPanel{
 		return;
 	}
 
-	public static void main(String[] args) {
+	public static void main() {
 		Chess c = new Chess();
 
 		c.frame = new JFrame("Chess");
