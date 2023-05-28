@@ -2,6 +2,7 @@ package MainUI;
 
 import OmokGame.Client.Mainclient;
 import OmokServer.Server.MainServer;
+import PingPong.Main;
 import TikTacToeGame.Start;
 
 import javax.swing.*;
@@ -24,11 +25,13 @@ public class MainUI extends JFrame {
         JButton OmokBt = new JButton("오목");
         JButton ChesstBt = new JButton("체스");
         JButton TiktaktoeBt = new JButton("틱택토");
+        JButton PingpongBt = new JButton("핑퐁");
         JButton QuitBt = new JButton("종료");
 
         OmokBt.setBounds(130,180,100,45);
         ChesstBt.setBounds(130,250,100,45);
         TiktaktoeBt.setBounds(250,180,100,45);
+        PingpongBt.setBounds(250,250,100,45);
         QuitBt.setBounds(130,320,100,45);
 
         //--------------------------------------------------------------------------------------------//
@@ -39,6 +42,7 @@ public class MainUI extends JFrame {
         background.add(OmokBt);
         background.add(ChesstBt);
         background.add(TiktaktoeBt);
+        background.add(PingpongBt);
         background.add(QuitBt);
 
         setVisible(true);
@@ -66,10 +70,18 @@ public class MainUI extends JFrame {
 
             TikTacToe.TikClient();
         });
+
+        PingpongBt.addActionListener((ActionEvent e) ->{
+            System.out.println("핑퐁");
+            PingPong.Main PingpongUI  = new Main();
+            PingpongUI.main();
+        });
         
         QuitBt.addActionListener((ActionEvent e) ->{
             System.exit(0);
         });
+
+
 
     }
 
