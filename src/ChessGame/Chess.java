@@ -557,7 +557,7 @@ public class Chess extends JPanel{
 	//~~~~~~~~~~~~ End of Mouse Listener ~~~~~~~~~~~~~//
 
 	///////////// now for all the action listener ///////////////
-	class AllEncompassingListener extends WindowAdapter implements ActionListener {
+	class AllEncompassingListener extends WindowAdapter implements ActionListener,Runnable {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 				case "new_game":
@@ -776,7 +776,8 @@ public class Chess extends JPanel{
 			return "";
 		}
 
-		public void serverSetup() {
+		@Override
+		public void run() {
 			try {
 				serverSocket = new ServerSocket(portNumber);
 				//JOptionPane.showMessageDialog(frame, "Waiting for client...");
@@ -797,6 +798,30 @@ public class Chess extends JPanel{
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(frame, "Exception when listening on " + hostName + ":" + portNumber);
 			}
+		}
+
+		public void serverSetup() {
+			/*try {
+				serverSocket = new ServerSocket(portNumber);
+				//JOptionPane.showMessageDialog(frame, "Waiting for client...");
+				clientSocket = serverSocket.accept();
+				chatBox.append("A player has connected.\n");
+				isConnected = true;
+				isWhite = true;
+				if (playerName.equals("default")){
+					if (isWhite) playerName = "White";
+					else playerName = "Black";
+				}
+				if (!isWhite) reverseDrawing = true;
+				board.resetBoard();
+				board.setupDefault();
+				out = new PrintWriter(clientSocket.getOutputStream(), true);
+				in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+				inputStream = clientSocket.getInputStream();
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(frame, "Exception when listening on " + hostName + ":" + portNumber);
+			}*/
+			run();
 		}
 
 		public void clientSetup() {

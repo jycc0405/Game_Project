@@ -1,10 +1,8 @@
 package MainUI;
 
-import ChessGame.runChess;
-import TikTacToeGame.Start;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.InetAddress;
 
 public class MainUI extends JFrame {
@@ -61,8 +59,14 @@ public class MainUI extends JFrame {
 
         ChesstBt.addActionListener((ActionEvent e) -> {
             System.out.println("체스");
-            ChessGame.runChess runChess = new runChess();
-            runChess.start();
+            try {
+                ProcessBuilder pb = new ProcessBuilder("java", "-cp", "bin", "ChessStart");
+                pb.start();
+                ProcessBuilder pb1 = new ProcessBuilder("java", "-cp", "out/production/Game_Project", "ChessStart");
+                pb1.start();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
 
         TiktaktoeBt.addActionListener((ActionEvent e) -> {
