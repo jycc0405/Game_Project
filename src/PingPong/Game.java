@@ -1,5 +1,4 @@
 package PingPong;
-import org.w3c.dom.css.Rect;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,13 +22,13 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private ObjectInputStream objectInputStream = null;
     private ObjectOutputStream objectOutputStream = null;
     // make rackets to default racket positions
-    private Racket serverRacket = new Racket(SERVERX,200);
-    private Racket remoteRacket = new Racket(REMOTEX,200);
+    private final Racket serverRacket = new Racket(SERVERX, 200);
+    private final Racket remoteRacket = new Racket(REMOTEX, 200);
     // make new ball to default position
-    private Ball ball = new Ball(450,450,serverRacket,remoteRacket);
+    private final Ball ball = new Ball(450, 450, serverRacket, remoteRacket);
 
     // background image
-    private BufferedImage image = new BufferedImage(256,256, BufferedImage.TYPE_INT_RGB);
+    private final BufferedImage image = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
 
     public Game(Socket sock) {
 
@@ -46,7 +45,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         } catch (IOException e) {
             System.err.print(e);
             try {
-               sock.close();
+                sock.close();
                 System.exit(1);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -55,7 +54,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         // make frame
 
-        this.setSize(600,400);
+        this.setSize(600, 400);
         JFrame frame = new JFrame("Pong Server");
         frame.add(this);
         frame.pack();
@@ -97,7 +96,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
         boolean running = true;
 
         // the game loop
-        while(running) {
+        while (running) {
 
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -166,8 +165,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 
         g.setFont(new Font("arial", Font.BOLD, 40));
         g.setColor(Color.WHITE);
-        g.drawString("" + ball.getServerScore(),50, 40);
-        g.drawString("" + ball.getRemoteScore(),500, 40);
+        g.drawString(String.valueOf(ball.getServerScore()), 50, 40);
+        g.drawString(String.valueOf(ball.getRemoteScore()), 500, 40);
 
         g.dispose();
         bs.show();
@@ -190,6 +189,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
             serverRacket.moveDown();
         }
     }
+
     public void keyTyped(KeyEvent e) {
 
     }

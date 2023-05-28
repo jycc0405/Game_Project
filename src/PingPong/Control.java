@@ -1,4 +1,5 @@
 package PingPong;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -9,7 +10,7 @@ public class Control extends KeyAdapter {
 
     Game game;
 
-    public Control (Game game) {
+    public Control(Game game) {
         this.game = game;
     }
 

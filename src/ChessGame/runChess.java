@@ -1,8 +1,8 @@
 package ChessGame;
 
-public class runChess extends Thread{
+public class runChess extends Thread {
     @Override
-    public void run(){
+    public void run() {
         Chess.main();
     }
 }

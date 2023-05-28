@@ -1,4 +1,5 @@
 package PingPong;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -7,18 +8,18 @@ import java.awt.event.KeyEvent;
  */
 public class RemoteControl extends KeyAdapter {
 
-        RemotePlayer game;
+    RemotePlayer game;
 
-        public RemoteControl (RemotePlayer game) {
-            this.game = game;
-        }
+    public RemoteControl(RemotePlayer game) {
+        this.game = game;
+    }
 
-        public void keyPressed(KeyEvent e) {
-            game.keyPressed(e);
-        }
+    public void keyPressed(KeyEvent e) {
+        game.keyPressed(e);
+    }
 
-        public void keyRelease(KeyEvent e) {
-            //game.keyRelease(e);
-        }
+    public void keyRelease(KeyEvent e) {
+        //game.keyRelease(e);
+    }
 
 }

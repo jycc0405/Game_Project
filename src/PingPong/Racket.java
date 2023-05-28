@@ -1,4 +1,5 @@
 package PingPong;
+
 import java.awt.*;
 
 /**
@@ -6,19 +7,18 @@ import java.awt.*;
  */
 public class Racket extends Rectangle {
 
-    private int y,x;
-
-    // Racket's movement speed of one press
-    private int speed = 18;
-
     // dimensions
     private final int WIDTH = 15;
     private final int HEIGHT = 60;
+    private int y;
+    private final int x;
+    // Racket's movement speed of one press
+    private final int speed = 18;
 
     /*
         Constructor, make racket to parameter coordinates and set bounds for Rectangle for collision detection
      */
-    public Racket (int x, int y) {
+    public Racket(int x, int y) {
         this.x = x;
         this.y = y;
         setBounds(x, y, WIDTH, HEIGHT);
@@ -28,7 +28,7 @@ public class Racket extends Rectangle {
         Tick
      */
     //public void tick() {
-      //  setBounds(x, y, WIDTH, HEIGHT);
+    //  setBounds(x, y, WIDTH, HEIGHT);
     //}
 
     /*
@@ -37,7 +37,7 @@ public class Racket extends Rectangle {
      */
     public void render(Graphics g) {
         g.setColor(Color.WHITE);
-        g.drawRect((int)this.getBounds().getX(), (int)this.getBounds().getY(), WIDTH, HEIGHT);
+        g.drawRect((int) this.getBounds().getX(), (int) this.getBounds().getY(), WIDTH, HEIGHT);
     }
 
     /*
@@ -55,7 +55,7 @@ public class Racket extends Rectangle {
 
     public void moveDown() {
         if (y < 340) {
-            y +=speed;
+            y += speed;
         }
     }
 

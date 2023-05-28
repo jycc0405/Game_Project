@@ -1,15 +1,15 @@
 package ChessGame;
+
+import ChessGame.Pieces.*;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.geom.*;
 import java.awt.event.*;
+import java.awt.geom.Rectangle2D;
 import java.io.*;
 import java.net.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.filechooser.*;
-
-// import the chess pieces
-import ChessGame.Pieces.*;
+import java.util.Scanner;
 
 public class Chess extends JPanel{
 	private ChessBoard board;

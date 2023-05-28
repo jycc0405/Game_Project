@@ -16,20 +16,16 @@ public class RemotePlayer extends Canvas {
     // remote racket's x position
     private final int REMOTEX = 540;
     private final int SERVERX = 40;
-
-    Racket racket = new Racket(REMOTEX,200);
-    Racket serverRacket = new Racket(SERVERX,200);
-    Socket clientSocket = null;
-    Ball ball = new Ball(250,250,serverRacket,racket);
-
-    ObjectInputStream objectInputStream = null;
-    ObjectOutputStream objectOutputStream = null;
-
-    // background image
-    BufferedImage image = new BufferedImage(5,5, BufferedImage.TYPE_INT_RGB);
-
     public int serverScore = 0;
     public int remoteScore = 0;
+    Racket racket = new Racket(REMOTEX, 200);
+    Racket serverRacket = new Racket(SERVERX, 200);
+    Ball ball = new Ball(250, 250, serverRacket, racket);
+    Socket clientSocket = null;
+    ObjectInputStream objectInputStream = null;
+    ObjectOutputStream objectOutputStream = null;
+    // background image
+    BufferedImage image = new BufferedImage(5, 5, BufferedImage.TYPE_INT_RGB);
 
     public static void main(String ip) {
         RemotePlayer remotePlayer = new RemotePlayer();
@@ -93,7 +89,7 @@ public class RemotePlayer extends Canvas {
         boolean running = true;
 
         // the game loop
-        while(running) {
+        while (running) {
 
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
@@ -161,8 +157,8 @@ public class RemotePlayer extends Canvas {
         // render scores
         g.setFont(new Font("arial", Font.BOLD, 40));
         g.setColor(Color.WHITE);
-        g.drawString("" + serverScore,50, 40);
-        g.drawString("" + remoteScore,500, 40);
+        g.drawString(String.valueOf(serverScore), 50, 40);
+        g.drawString(String.valueOf(remoteScore), 500, 40);
 
         g.dispose();
         bs.show();
@@ -181,6 +177,7 @@ public class RemotePlayer extends Canvas {
             racket.moveDown();
         }
     }
+
     public void keyTyped(KeyEvent e) {
 
     }

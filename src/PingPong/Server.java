@@ -1,4 +1,5 @@
 package PingPong;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,11 +13,11 @@ import java.net.Socket;
  */
 
 public class Server {
-
+    static Socket sock = null;
     public static void main() {
 
         // create serversocket
-        Socket sock = null;
+
 
         try {
             // new serversocket on port 3777

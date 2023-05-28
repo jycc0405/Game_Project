@@ -1,4 +1,5 @@
 package PingPong;
+
 import java.awt.*;
 
 /**
@@ -6,14 +7,14 @@ import java.awt.*;
  */
 
 
-public class Ball extends Rectangle{
+public class Ball extends Rectangle {
 
     private final int width = 15, height = 15;
-    private int x,y;
-    private int speed = 6;
+    private int x, y;
+    private final int speed = 6;
     private int vX = -speed, vY = -speed;
-    private Racket serverRacket;
-    private Racket remoteRacket;
+    private final Racket serverRacket;
+    private final Racket remoteRacket;
 
 
     private int serverScore = 0;
@@ -25,7 +26,7 @@ public class Ball extends Rectangle{
         take serverRacket and remoteRacket as parameters for collision detection
      */
 
-    public Ball(int x, int y, Racket serverRacket, Racket remoteRacket){
+    public Ball(int x, int y, Racket serverRacket, Racket remoteRacket) {
 
         this.serverRacket = serverRacket;
         this.remoteRacket = remoteRacket;
@@ -79,6 +80,7 @@ public class Ball extends Rectangle{
             vX = -speed;
         }
     }
+
     /*
         Render graphics
      */
@@ -94,6 +96,7 @@ public class Ball extends Rectangle{
     public int getRemoteScore() {
         return this.remoteScore;
     }
+
     /*
         Reset ball to middle after score
      */
@@ -113,6 +116,7 @@ public class Ball extends Rectangle{
     public int getBallX() {
         return x;
     }
+
     public int getBallY() {
         return y;
     }
