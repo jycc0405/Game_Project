@@ -1,5 +1,6 @@
 package MainUI;
 
+import ChessGame.runChess;
 import OmokGame.Client.Mainclient;
 import OmokServer.Server.MainServer;
 import PingPong.Main;
@@ -56,6 +57,8 @@ public class MainUI extends JFrame {
 
         ChesstBt.addActionListener((ActionEvent e) ->{
             System.out.println("체스");
+            ChessGame.runChess runChess = new runChess();
+            runChess.start();
         });
 
         TiktaktoeBt.addActionListener((ActionEvent e) ->{
